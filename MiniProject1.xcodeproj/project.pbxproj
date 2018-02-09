@@ -15,6 +15,7 @@
 		190495AE202D0BBA0080F0E2 /* MiniProject1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190495AD202D0BBA0080F0E2 /* MiniProject1Tests.swift */; };
 		190495B9202D0BBA0080F0E2 /* MiniProject1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190495B8202D0BBA0080F0E2 /* MiniProject1UITests.swift */; };
 		19EE09E6202D240F001DEA76 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EE09E5202D240F001DEA76 /* MainViewController.swift */; };
+		19F3EAE6202D6912005D9769 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F3EAE5202D6912005D9769 /* StatsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		190495B8202D0BBA0080F0E2 /* MiniProject1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniProject1UITests.swift; sourceTree = "<group>"; };
 		190495BA202D0BBA0080F0E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19EE09E5202D240F001DEA76 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		19F3EAE5202D6912005D9769 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				19049598202D0BBA0080F0E2 /* AppDelegate.swift */,
 				1904959A202D0BBA0080F0E2 /* ViewController.swift */,
 				19EE09E5202D240F001DEA76 /* MainViewController.swift */,
+				19F3EAE5202D6912005D9769 /* StatsViewController.swift */,
 				1904959C202D0BBA0080F0E2 /* Main.storyboard */,
 				1904959F202D0BBA0080F0E2 /* Assets.xcassets */,
 				190495A1202D0BBA0080F0E2 /* LaunchScreen.storyboard */,
@@ -264,6 +267,7 @@
 			files = (
 				19EE09E6202D240F001DEA76 /* MainViewController.swift in Sources */,
 				1904959B202D0BBA0080F0E2 /* ViewController.swift in Sources */,
+				19F3EAE6202D6912005D9769 /* StatsViewController.swift in Sources */,
 				19049599202D0BBA0080F0E2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

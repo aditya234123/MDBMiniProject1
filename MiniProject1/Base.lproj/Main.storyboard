@@ -21,7 +21,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <segue destination="HAC-jX-iWO" kind="show" identifier="first" id="mZ5-Co-fy9"/>
+                        <segue destination="HAC-jX-iWO" kind="presentation" identifier="first" modalTransitionStyle="crossDissolve" id="mZ5-Co-fy9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -58,16 +58,17 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="hmP-3Q-AAD" kind="show" identifier="second" id="Wub-fO-Pzf"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="back" modalTransitionStyle="partialCurl" id="Hma-sr-jTj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k7L-jO-FTo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2484" y="116"/>
         </scene>
-        <!--View Controller-->
+        <!--Stats View Controller-->
         <scene sceneID="uaS-E4-ywg">
             <objects>
-                <viewController id="hmP-3Q-AAD" sceneMemberID="viewController">
+                <viewController id="hmP-3Q-AAD" customClass="StatsViewController" customModule="MiniProject1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dIb-VF-Era">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

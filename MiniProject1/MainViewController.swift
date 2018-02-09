@@ -23,7 +23,9 @@ class MainViewController: UIViewController {
     var score = 0
     
     //stats
-    
+    var currentStreak = 0
+    var lastThree = [Bool]()
+    var currentLongest = 0
     
     var seconds = 0
     
@@ -31,7 +33,7 @@ class MainViewController: UIViewController {
     var paused = false
     
     var members = ["Daniel Andrews", "Nikhar Arora", "Tiger Chen", "Xin Yi Chen", "Julie Deng", "Radhika Dhomse", "Kaden Dippe", "Angela Dong", "Zach Govani", "Shubham Gupta", "Suyash Gupta", "Joey Hejna", "Cody Hsieh", "Stephen Jayakar", "Aneesh Jindal", "Mohit Katyal", "Mudabbir Khan", "Akkshay Khoslaa", "Justin Kim", "Eric Kong", "Abhinav Koppu", "Srujay Korlakunta", "Ayush Kumar", "Shiv Kushwah", "Leon Kwak", "Sahil Lamba", "Young Lin", "William Lu", "Louie McConnell", "Max Miranda", "Will Oakley", "Noah Pepper", "Samanvi Rai", "Krishnan Rajiyah", "Vidya Ravikumar", "Shreya Reddy", "Amy Shen", "Wilbur Shi", "Sumukh Shivakumar", "Fang Shuo", "Japjot Singh", "Victor Sun", "Sarah Tang", "Kanyes Thaker", "Aayush Tyagi", "Levi Walsh", "Carol Wang", "Sharie Wang", "Ethan Wong", "Natasha Wong", "Aditya Yadav", "Candice Ye", "Vineeth Yeevani", "Jeffrey Zhang"];
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -40,9 +42,10 @@ class MainViewController: UIViewController {
         setButton()
         setQuestion()
         getRandom()
-        let colorTop =  UIColor(red: 238/255, green: 82/255, blue: 83/255, alpha: 1.0)
-        self.navigationController?.navigationBar.backgroundColor = colorTop
+        //let colorTop =  UIColor(red: 238/255, green: 82/255, blue: 83/255, alpha: 1.0)
+        //self.navigationController?.navigationBar.backgroundColor = colorTop
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timeUp), userInfo: nil, repeats: true)
+        self.navigationItem.title = "Guess"
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,7 +53,7 @@ class MainViewController: UIViewController {
             pauseOrResume()
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -71,6 +74,15 @@ class MainViewController: UIViewController {
         pauseOrResume()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "second" {
+            var nextVC = segue.destination as! StatsViewController
+            nextVC.currentStreak = self.currentLongest
+            nextVC.lastThree = self.lastThree
+        }
+    }
+    
+    
     func pauseOrResume() {
         if paused {
             paused = false
@@ -80,7 +92,7 @@ class MainViewController: UIViewController {
             paused = true
         }
     }
-
+    
     func initializeBackground() {
         bgLabel = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
         
@@ -113,12 +125,37 @@ class MainViewController: UIViewController {
         stopButton.layer.cornerRadius = 5
         stopButton.layer.borderWidth = 5
         stopButton.layer.borderColor = UIColor.white.cgColor
+        stopButton.setTitleColor(.red, for: .highlighted)
         stopButton.setTitle("Stop", for: .normal)
         stopButton.titleLabel?.font = UIFont(name: "Georgia", size: 20)
         stopButton.titleLabel?.textAlignment = .center
+        stopButton.addTarget(self, action: #selector(stopButtonPressed), for: .touchUpInside)
         
         view.addSubview(stopButton)
     }
+    
+    @objc func stopButtonPressed() {
+        
+        UIView.animate(withDuration: 0.3) {
+            //fade out errything
+            self.scoreLabel.alpha = 0
+            self.imageView.alpha = 0
+            self.answer0.alpha = 0
+            self.answer1.alpha = 0
+            self.answer2.alpha = 0
+            self.answer3.alpha = 0
+            self.stopButton.frame.origin.y = self.view.frame.height / 4 + 100
+            let colorTop =  UIColor(red: 238/255, green: 82/255, blue: 83/255, alpha: 1.0)
+            self.stopButton.backgroundColor = colorTop
+        }
+        
+        Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { (Timer) in
+            self.performSegue(withIdentifier: "back", sender: self)
+        }
+        
+        
+    }
+    
     
     func setQuestion() {
         let height = view.frame.height / 10
@@ -206,29 +243,33 @@ class MainViewController: UIViewController {
         seconds += 1
         
         if (seconds > 4) {
-        //disable all
-        //set all to red for 1 second.
-        //reset
-        
-        answer0.isUserInteractionEnabled = false
-        answer1.isUserInteractionEnabled = false
-        answer2.isUserInteractionEnabled = false
-        answer3.isUserInteractionEnabled = false
-        
-        UIView.animate(withDuration: 1) {
-            self.answer0.backgroundColor = .red
-            self.answer1.backgroundColor = .red
-            self.answer2.backgroundColor = .red
-            self.answer3.backgroundColor = .red
-        }
-        
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (Timer) in
-            self.getRandom()
-        }
-        seconds = 0
+            //disable all
+            //set all to red for 1 second.
+            //reset
+            
+            answer0.isUserInteractionEnabled = false
+            answer1.isUserInteractionEnabled = false
+            answer2.isUserInteractionEnabled = false
+            answer3.isUserInteractionEnabled = false
+            
+            UIView.animate(withDuration: 1) {
+                self.answer0.backgroundColor = .red
+                self.answer1.backgroundColor = .red
+                self.answer2.backgroundColor = .red
+                self.answer3.backgroundColor = .red
+            }
+            
+            Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (Timer) in
+                self.getRandom()
+            }
+            seconds = 0
+            self.lastThree.append(false)
+            if currentStreak > currentLongest {
+                currentLongest = currentStreak
+            }
+            self.currentStreak = 0
             
         }
-        
         
     }
     
@@ -294,14 +335,24 @@ class MainViewController: UIViewController {
         switch(sender.tag) {
         case correctAnswer:
             UIView.animate(withDuration: 1, animations: {
+                self.lastThree.append(true)
                 sender.backgroundColor = .green
                 self.score += 1
+                self.currentStreak += 1
+                if self.currentStreak > self.currentLongest {
+                    self.currentLongest = self.currentStreak
+                }
                 self.scoreLabel.text = "Score: \(self.score)"
             })
             break
         default:
             UIView.animate(withDuration: 1, animations: {
+                self.lastThree.append(false)
                 sender.backgroundColor = .red
+                if self.currentStreak > self.currentLongest {
+                    self.currentLongest = self.currentStreak
+                }
+                self.currentStreak = 0
             })
             break
         }
@@ -312,5 +363,5 @@ class MainViewController: UIViewController {
         seconds = 0
         
     }
-
+    
 }
