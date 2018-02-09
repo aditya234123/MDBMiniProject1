@@ -6,7 +6,7 @@ This app was created with the intention to help you learn the names of all the m
 
 The app begins with the following screen:
 
---insert image here
+<img width="291" alt="screen1" src="https://user-images.githubusercontent.com/17814417/36016723-38fe35be-0d29-11e8-8e5e-c04f871bc4b9.png">
 
 You simply click start to begin, and there will be a transition over to the main screen of the app.
 
