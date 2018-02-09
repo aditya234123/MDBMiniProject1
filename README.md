@@ -14,7 +14,7 @@ Afterwards you are presented immediately with an image of a current MDB member a
 Select which one you believe to be the person and the app will either turn the choice green or red depending on if its
 right or wrong.
 
---insert image here
+<img width="288" alt="screen2" src="https://user-images.githubusercontent.com/17814417/36016773-75dac3f8-0d29-11e8-9ecf-d575dfa50bec.png">
 
 You have 5 seconds to answer, otherwise all answer choices will become red and move on.
 
