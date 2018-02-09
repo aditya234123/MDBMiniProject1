@@ -24,16 +24,14 @@ If you select the stop button, you will be returned to the first screen.
 
 If you click on the top right statistics icon, inside the navigation bar, you are brought to the following screen:
 
---insert image here
+<img width="288" alt="screen3" src="https://user-images.githubusercontent.com/17814417/36016795-8eb07012-0d29-11e8-89e4-14edea8053f8.png">
 
 Here you are shown your longest streak of correct answers, and how you have done on the last three questions.
 
 While at this screen, the game will simply be paused.
 
-
 ## Credits for the ICONS used:
 * Icons used were made by Smashicons from www.flaticon.com 
-
 
 ## Authors
 
