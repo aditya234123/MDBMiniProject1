@@ -171,16 +171,16 @@ class MainViewController: UIViewController {
         let upperbuttonOffset = view.frame.height - height - 15 - 2.5 * height
         
         //answer choices + a bunch of math that I hope is somewhat dynamic. Took a while :(
-        answer0 = UIButton(frame: CGRect(x: 10, y: upperbuttonOffset, width: view.frame.width / 2 - 20, height: height))
+        answer0 = UIButton(frame: CGRect(x: 14, y: upperbuttonOffset, width: view.frame.width / 2 - 21, height: height))
         answer0.backgroundColor = buttonColor
         answer0.tag = 0
-        answer1 = UIButton(frame: CGRect(x: 10 + view.frame.width / 2 - 20 + 20, y: upperbuttonOffset, width: view.frame.width / 2 - 20, height: height))
+        answer1 = UIButton(frame: CGRect(x: 28 + view.frame.width / 2 - 21, y: upperbuttonOffset, width: view.frame.width / 2 - 21, height: height))
         answer1.backgroundColor = buttonColor
         answer1.tag = 1
-        answer2 = UIButton(frame: CGRect(x: 10, y: upperbuttonOffset + height + 10, width: view.frame.width / 2 - 20, height: height))
+        answer2 = UIButton(frame: CGRect(x: 14, y: upperbuttonOffset + height + 10, width: view.frame.width / 2 - 21, height: height))
         answer2.backgroundColor = buttonColor
         answer2.tag = 2
-        answer3 = UIButton(frame: CGRect(x: 10 + view.frame.width / 2 - 20 + 20, y: upperbuttonOffset + height + 10, width: view.frame.width / 2 - 20, height: height))
+        answer3 = UIButton(frame: CGRect(x: 28 + view.frame.width / 2 - 21, y: upperbuttonOffset + height + 10, width: view.frame.width / 2 - 21, height: height))
         answer3.backgroundColor = buttonColor
         answer3.tag = 3
         view.addSubview(answer0)
