@@ -43,7 +43,7 @@ class StatsViewController: UIViewController {
         longestLabel = UILabel(frame: CGRect(x: 10, y: (self.navigationController?.navigationBar.frame.height)! + 30, width: view.frame.width - 20, height: 40))
         longestLabel.text = "Longest Streak of Correct Answers: \(currentStreak)"
         longestLabel.textColor = .white
-        longestLabel.font = UIFont(name: "Georgia", size: 18)
+        longestLabel.font = UIFont(name: "Georgia", size: 17)
         longestLabel.textAlignment = .center
         
         view.addSubview(longestLabel)
