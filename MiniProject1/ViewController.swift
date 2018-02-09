@@ -51,7 +51,7 @@ class ViewController: UIViewController {
         //label config
         projectLabel = UILabel(frame: CGRect(x: 20, y: view.frame.height / 4, width: view.frame.width - 40, height: 50))
         projectLabel.textColor = .white
-        projectLabel.text = "MDB MiniProject 1"
+        projectLabel.text = "Match the Members!"
         projectLabel.textAlignment = .center
         projectLabel.font = UIFont(name: "Georgia", size: 30)
         
