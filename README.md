@@ -35,4 +35,4 @@ While at this screen, the game will simply be paused.
 
 ## Authors
 
-This was built soley by me, Aditya Yadav
+This was built by me, Aditya Yadav
